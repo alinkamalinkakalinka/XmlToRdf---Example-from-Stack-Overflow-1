@@ -1,0 +1,27 @@
+@prefix xmlTodRdf: <http://acandonorway.github.com/XmlToRdf/ontology.ttl#> .
+@prefix foo:   <http://example.com/foo#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+<http://www.example1.com>
+        rdfs:label  "contact1" .
+
+<http://www.example2.com>
+        rdfs:label  "contact2" .
+
+<http://www.example.com/critic/Anna>
+        a              foaf:Person ;
+        foaf:homepage  <http://www.example2.com> ;
+        foaf:name      "Anna" ;
+        foaf:vote      "80" .
+
+<http://www.example.com/critic/Joe>
+        a              foaf:Person ;
+        foaf:homepage  <http://www.example1.com> ;
+        foaf:name      "Joe" ;
+        foaf:vote      "20" .
+
+[ a              <http://example.com/xml> ;
+  foo:hasCritic  <http://www.example.com/critic/Anna> , <http://www.example.com/critic/Joe>
+] .
